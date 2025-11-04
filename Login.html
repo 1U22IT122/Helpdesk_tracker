@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Helpdesk Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-body">
+
+  <div class="login-container">
+    <h2>Helpdesk System Login</h2>
+
+    <form id="loginForm">
+      <label>Username</label>
+      <input type="text" id="username" placeholder="Enter Username" required>
+
+      <label>Password</label>
+      <input type="password" id="password" placeholder="Enter Password" required>
+
+      <label>Role</label>
+      <select id="role" required>
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+      </select>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <p class="note">Use <b>admin/admin123</b> for admin login or <b>user/user123</b> for user login.</p>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const role = document.getElementById("role").value;
+      
+      // Credentials
+      const credentials = {
+        admin: { username: "admin", password: "admin123" },
+        user: { username: "user", password: "user123" }
+      };
+
+      // Validation logic
+      if (credentials[role] && credentials[role].username === username && credentials[role].password === password) {
+        localStorage.setItem("loggedInUser", JSON.stringify({ username, role }));
+        window.location.href = "index.html"; 
+      } else {
+        alert("Invalid username or password!");
+      }
+      
+    });
+  </script>
+
+</body>
+</html>
