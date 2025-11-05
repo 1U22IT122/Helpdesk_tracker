@@ -77,6 +77,16 @@
     </div>
   </div>
     <script src="script.js"></script>
-    
+    <script>
+   // Check if user is logged in
+  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
+  if (!loggedInUser) {
+    // If not logged in, redirect to login page
+    alert("Please log in first!");
+    window.location.href = "Login.html";
+  }
+  </script>
+ 
 </body>
 </html>
