@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Helpdesk Tracker</title>
-    <link rel="stylesheet" href="style.css">    
+    <link rel="stylesheet" href="style.css"> 
+    <script>
+    const logInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (!logInUser) {
+      window.location.replace("Login.html");
+    }
+  </script>
 </head>
 <body>
    <div class="container">
