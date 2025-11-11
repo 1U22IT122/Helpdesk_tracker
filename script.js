@@ -90,7 +90,7 @@ function editTicket(id) {
 }
 
 function deleteTicket(id) {
-  if (confirm("Delete this ticket?")) {
+  if (confirm("Are you sure you want to Delete this ticket?")) {
     tickets = tickets.filter(t => t.id !== id);
     localStorage.setItem("tickets", JSON.stringify(tickets));
     renderTickets();
